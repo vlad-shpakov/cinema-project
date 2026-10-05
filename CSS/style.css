@@ -1,0 +1,151 @@
+:root {
+    background-color: #ffffff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    --main-color: #1a1a1a;
+    --second-color: #821f27;
+}
+
+
+body {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px;
+    color: var(--main-color);
+}
+
+
+body a {
+    text-decoration: none;
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+
+body a:hover {
+    text-decoration: underline;
+}
+
+
+img {
+    max-width: 100%;
+}
+
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #f2f2f2;
+    padding: 15px 20px;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.navigation {
+    display: flex;
+    gap: 30px;
+    font-weight: bold;
+    align-items: center;
+}
+
+
+.navigation a {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+
+.hero {
+    background: url("../images/hero.avif") no-repeat center;
+    background-size: cover;
+
+    height: 350px;
+    padding: 20px;
+
+    color: white;
+}
+
+
+.hero h2 {
+    font-size: 45px;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+}
+
+
+.hero p {
+    max-width: 550px;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0;
+}
+
+
+
+#films {
+    padding: 20px 0;
+}
+
+
+.film-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+.film-grid img {
+    border-radius: 10px;
+}
+
+
+#charger-plus {
+    background-color: var(--second-color);
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;   
+}
+
+footer {
+    background-color: var(--main-color);
+    padding: 25px 30px;
+    margin-top: 20px;
+}
+
+
+footer,
+footer a {
+    color: white;
+}
+
+
+.footer {
+    display: flex;
+    align-items: center;
+}
+
+
+.footer-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+
+#credits {
+    font-size: 16px;
+}
