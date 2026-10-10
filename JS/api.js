@@ -10,7 +10,7 @@ export function searchMovie(movie) {
 
 
 export function getMovieById(filmId) {
-    const url = `https://www.omdbapi.com/?apikey=ce52347d&i=${filmId}`;
+    const url = `https://www.omdbapi.com/?apikey=ce52347d&i=${filmId}&plot=full`;
 
      return fetch(url)
         .then(response => response.json());

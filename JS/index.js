@@ -1,8 +1,9 @@
  import { getMovieById } from "./api.js";
 
+// Liste des films sur la page d'accueil
 const filmsId = [
-    "tt5040012","tt29623480","tt0104224","tt15239678","tt22022452", 
-    "tt12037194","tt9218128","tt18412256","tt11389872"  
+    "tt29355505","tt33764258","tt12042730","tt33612209","tt22084616", 
+    "tt26443616","tt27047903","tt28650488","tt0104224"  
 ];
 
 
@@ -10,6 +11,8 @@ const filmGroups = _.chunk(filmsId, 3);
 
 let currentPage = 1;
 const filmGrid = document.querySelector(".film-grid")
+
+// Fonction qui récupère les données des films et crée les cartes HTML
 function showFilms(){
  
     filmGroups[currentPage - 1].forEach((filmId) => {
@@ -27,10 +30,7 @@ function showFilms(){
 
         const resume = document.createElement("p");
         resume.textContent = movie.Plot.slice(0,100) + "...";
-
-        
-
-        
+               
         film.appendChild(poster)
         film.appendChild(resume)
         film.appendChild(link)
@@ -40,7 +40,7 @@ function showFilms(){
 }
 showFilms()
 
-
+// Affiche les 3 films au click
 const loadButton = document.getElementById("charger-plus") 
 
 loadButton.addEventListener("click", () => {
