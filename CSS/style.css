@@ -149,3 +149,111 @@ footer a {
 #credits {
     font-size: 16px;
 }
+
+/* Organise les affiches de films en 3 colonnes */
+#movies {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    background-color: #1a1a1a;
+}
+
+#movies article {
+    border: solid black 2px;
+}
+
+#movies img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+#movies h2 {
+    text-align: center;
+    color: #f2f2f2;
+}
+
+#movies a {
+    color: #f2f2f2;
+    background-color: #821f27;
+}
+
+#movies p {
+    color: #f2f2f2;
+}
+
+/* En-tête de la page de recherche */
+#searchHeader {
+    background-color: #171923;
+    padding: 20px;
+}
+
+#searchHeader nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+#searchHeader nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#searchHeader nav a:hover {
+    color: #e5484d;
+}
+
+/* Pied de page de la page de recherche */
+#searchFooter {
+    background-color: #171923;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* Barre de recherche */
+#search {
+    width: 80%;
+    max-width: 500px;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #171923;
+    border-radius: 8px;
+    background-color: white;
+    color: #171923;
+}
+
+/* Quand on clique dans la barre */
+#search:focus {
+    outline: 2px solid #e5484d;
+}
+
+/* Bouton pour charger plus */
+#loadMore {
+    align-items: center;
+    color: #f2f2f2;
+    background-color: #e5484d;
+    border-radius: 8px;
+    width: 120px;
+    height: 60px;
+    cursor: pointer;
+}
+
+/* Bouton pour remonter en haut */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #e5484d;
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+}
