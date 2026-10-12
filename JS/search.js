@@ -14,6 +14,9 @@ let query = "";
 // Initialise les résultats à charger à false
 let noMoreResults = false
 
+// Message quand plus aucun films à afficher
+const noMoreMovies = document.createElement("p");
+
 // Parcourt chaque films et les affichent
 function displayMovie(data) {
     data.Search.forEach(movie => {
@@ -24,6 +27,7 @@ function displayMovie(data) {
     // Crée l'image du poster
     const moviePoster = document.createElement("img");
     moviePoster.setAttribute("src", movie.Poster);
+    moviePoster.setAttribute("alt", `Affiche du film : ${movie.Title}`);
 
     // Crée le titre du film
     const movieTitle = document.createElement("h2");
@@ -52,6 +56,9 @@ input.addEventListener("input", () => {
 
     // Réinitialise la pagination lors d'une nouvelle recherche
     page = 1;
+
+    // Efface le message du chargement de films
+    noMoreMovies.textContent = "";
 
     // Réinitialise le bouton quand l'utilisateur commence une nouvelle recherche
     noMoreResults = false;
@@ -102,6 +109,7 @@ button.addEventListener("click", () => {
         return;
     }
 
+    // Affiche les pages suivantes sans effacer les anciens résultats
     page = page + 1;
 
     // Envoie la recherche à l'API et attend les résultats
@@ -111,9 +119,8 @@ button.addEventListener("click", () => {
             // Renvoie un message d'erreur si aucun films n'a été trouvé
             if (data.Response == "False") {
                 noMoreResults = true
-                const noMoreMovies = document.createElement("p");
                 noMoreMovies.textContent = "Il n'y a pas plus de résultats à charger";
-                display.append(noMoreMovies);
+                display.after(noMoreMovies);
                 return;
                 }
 
