@@ -547,6 +547,11 @@ footer p {
     footer {
         justify-content: flex-start;
     }
+
+     #movie  div {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 520px) {
