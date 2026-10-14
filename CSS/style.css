@@ -1,19 +1,34 @@
+/* =========================
+   1. STYLE GENERAL
+========================= */
+
 :root {
     background-color: #ffffff;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+        sans-serif;
 
     --main-color: #1a1a1a;
     --second-color: #821f27;
+    --accent-color: #e5484d;
+    --header-color: #171923;
+    --light-color: #f2f2f2;
 }
-
 
 body {
     max-width: 1400px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
     padding: 10px;
     color: var(--main-color);
 }
 
+main {
+    flex: 1;
+}
 
 body a {
     text-decoration: none;
@@ -21,28 +36,31 @@ body a {
     cursor: pointer;
 }
 
-
 body a:hover {
     text-decoration: underline;
 }
-
 
 img {
     max-width: 100%;
 }
 
 
+/* =========================
+   2. HEADER ET NAVIGATION
+   Commun aux trois pages
+========================= */
 
 header {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
 
-    background-color: #f2f2f2;
+    background-color: var(--header-color);
+    color: white;
     padding: 15px 20px;
 }
-
 
 .logo {
     display: flex;
@@ -50,31 +68,54 @@ header {
     gap: 10px;
 }
 
-
-.navigation {
-    display: flex;
-    gap: 30px;
-    font-weight: bold;
-    align-items: center;
-}
-
-
-.navigation a {
-    text-decoration: none;
-    color: var(--main-color);
-}
-
-
-.hero {
-    background: url("../images/hero.avif") no-repeat center;
-    background-size: cover;
-
-    height: 350px;
-    padding: 20px;
-
+.logo h1 {
+    margin: 0;
     color: white;
 }
 
+.logo p {
+    margin: 0;
+}
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    font-weight: bold;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+}
+
+.navigation a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+
+/* =========================
+   3. ACCUEIL : BANNIERE
+========================= */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+        url("../images/hero.avif") no-repeat center;
+
+    background-size: cover;
+
+    min-height: 350px;
+    padding: 20px;
+    color: white;
+}
 
 .hero h2 {
     font-size: 45px;
@@ -83,177 +124,446 @@ header {
     margin: 0;
 }
 
-
 .hero p {
     max-width: 550px;
     font-weight: 600;
     font-size: 20px;
+    line-height: 1.5;
     margin: 0;
 }
 
 
+/* =========================
+   4. ACCUEIL : SECTIONS
+========================= */
 
-#films {
-    padding: 20px 0;
+#films,
+#cinema,
+#infos {
+    padding: 24px 0;
 }
 
+#cinema p {
+    max-width: 1000px;
+    line-height: 1.6;
+}
+
+
+/* Films affichés sur l'accueil */
 
 .film-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
 }
 
+.film-grid > div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    min-width: 0;
+    padding: 12px;
+
+    background-color: var(--main-color);
+    color: var(--light-color);
+    border-radius: 8px;
+    overflow: hidden;
+    font-weight: bold;
+}
 
 .film-grid img {
-    border-radius: 10px;
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.film-grid p {
+    margin: 0;
+    line-height: 1.5;
+    font-weight: normal;
+}
+
+.film-grid a {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 8px 12px;
+
+    color: white;
+    background-color: var(--second-color);
+    border-radius: 4px;
+}
+
+.film-grid a:hover {
+    background-color: var(--accent-color);
+    text-decoration: none;
 }
 
 
+/* Bouton Charger plus sur l'accueil */
+
 #charger-plus {
+    display: block;
+    margin: 0 auto 24px;
+    padding: 10px 20px;
+
     background-color: var(--second-color);
     color: white;
 
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;   
+    font-size: 16px;
+    cursor: pointer;
 }
 
+#charger-plus:hover {
+    background-color: var(--accent-color);
+}
+
+
+/* =========================
+   5. ACCUEIL : TABLEAUX
+   Horaires et tarifs
+========================= */
+
+#infos table {
+    border-collapse: collapse;
+    margin: 12px 0 28px;
+}
+
+#infos th,
+#infos td {
+    padding: 10px 14px;
+    border: 1px solid #dddddd;
+    text-align: left;
+}
+
+#infos thead {
+    background-color: var(--light-color);
+}
+
+#infos th[scope="row"] {
+    background-color: #f7f7f7;
+}
+
+
+/* =========================
+   6. PAGE DETAIL DU FILM
+========================= */
+
+#movie {
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+#movie > div {
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+    grid-template-areas:
+        "title title"
+        "poster rate"
+        "poster release"
+        "poster genre"
+        "poster actors"
+        "resume resume";
+
+    gap: 20px 32px;
+    align-items: start;
+
+    padding: 28px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+
+/* Titre du film */
+
+#movie h2 {
+    grid-area: title;
+    margin: 0;
+    font-size: 2rem;
+    color: var(--main-color);
+}
+
+/* Affiche */
+
+#movie img {
+    grid-area: poster;
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0;
+}
+
+/* Informations */
+
+#movie p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+#movie p:nth-of-type(1) {
+    grid-area: rate;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--second-color);
+}
+
+#movie p:nth-of-type(2) {
+    grid-area: release;
+    color: #555555;
+}
+
+#movie p:nth-of-type(3) {
+    grid-area: genre;
+    font-weight: bold;
+}
+
+#movie p:nth-of-type(4) {
+    grid-area: actors;
+}
+
+/* Résumé */
+
+#movie p:nth-of-type(5) {
+    grid-area: resume;
+    padding-top: 20px;
+    border-top: 1px solid #cccccc;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   7. FOOTER
+   Commun aux trois pages
+========================= */
+
 footer {
-    background-color: var(--main-color);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+
+    background-color: var(--header-color);
+    color: var(--light-color);
+
     padding: 25px 30px;
     margin-top: 20px;
 }
 
-
-footer,
 footer a {
     color: white;
 }
 
-
-.footer {
-    display: flex;
-    align-items: center;
+footer a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
 }
-
 
 .footer-menu {
     display: flex;
-    align-items: center;
-    gap: 30px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.footer-menu h3 {
+    margin: 0 0 4px;
+}
+
+footer p {
+    margin: 0;
 }
 
 
-#credits {
+/* =========================
+   8. PAGE RECHERCHE
+   Styles spécifiques conservés
+   en bas du fichier
+========================= */
+
+
+/* Barre de recherche */
+
+#search {
+    display: block;
+    box-sizing: border-box;
+    width: 80%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 12px;
+
     font-size: 16px;
+    border: 2px solid var(--header-color);
+    border-radius: 8px;
+
+    background-color: white;
+    color: var(--header-color);
 }
 
-/* Organise les affiches de films en 3 colonnes */
+#search:focus {
+    outline: 2px solid var(--accent-color);
+}
+
+
+/* Grille des résultats */
+
 #movies {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
-    background-color: #1a1a1a;
+
+    max-width: 1100px;
+    margin: 24px auto;
+
+    text-align: center;
 }
 
+
+/* Cartes de films */
+
 #movies article {
-    border: solid black 2px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+
+    background-color: var(--main-color);
+    color: var(--light-color);
+
+    border: 1px solid #333333;
+    border-radius: 8px;
+    overflow: hidden;
+
+    text-align: center;
 }
 
 #movies img {
+    display: block;
     width: 100%;
     aspect-ratio: 2 / 3;
     object-fit: cover;
-    display: block;
 }
 
 #movies h2 {
-    text-align: center;
-    color: #f2f2f2;
-}
-
-#movies a {
-    color: #f2f2f2;
-    background-color: #821f27;
+    color: var(--light-color);
+    font-size: 1.1rem;
+    padding: 0 12px;
+    margin: 16px 0;
 }
 
 #movies p {
-    color: #f2f2f2;
+    color: var(--light-color);
+    padding: 0 12px;
 }
 
-/* En-tête de la page de recherche */
-#searchHeader {
-    background-color: #171923;
-    padding: 20px;
+
+/* Liens des cartes */
+
+#movies article a {
+    display: inline-block;
+    align-self: center;
+    margin: auto 12px 16px;
+    padding: 8px 12px;
+
+    color: var(--light-color);
+    background-color: var(--second-color);
+    border-radius: 4px;
 }
 
-#searchHeader nav {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-#searchHeader nav a {
-    color: white;
+#movies article a:hover {
+    background-color: var(--accent-color);
     text-decoration: none;
-    font-weight: bold;
 }
 
-#searchHeader nav a:hover {
-    color: #e5484d;
-}
 
-/* Pied de page de la page de recherche */
-#searchFooter {
-    background-color: #171923;
-    color: white;
+/* Message de fin de résultats */
+
+#movies + p {
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
 }
 
-/* Barre de recherche */
-#search {
-    width: 80%;
-    max-width: 500px;
-    padding: 12px;
-    font-size: 16px;
-    border: 2px solid #171923;
-    border-radius: 8px;
-    background-color: white;
-    color: #171923;
-}
 
-/* Quand on clique dans la barre */
-#search:focus {
-    outline: 2px solid #e5484d;
-}
+/* Bouton Charger plus */
 
-/* Bouton pour charger plus */
 #loadMore {
-    align-items: center;
-    color: #f2f2f2;
-    background-color: #e5484d;
+    display: block;
+    margin: 24px auto;
+    padding: 12px 20px;
+
+    color: white;
+    background-color: var(--accent-color);
+
+    border: none;
     border-radius: 8px;
-    width: 120px;
-    height: 60px;
+    font-size: 16px;
     cursor: pointer;
 }
 
-/* Bouton pour remonter en haut */
+#loadMore:hover {
+    background-color: #c9363d;
+}
+
+
+/* Bouton retour en haut */
+
 #backToTop {
     position: fixed;
-    bottom: 20px;
     right: 20px;
-    background-color: #e5484d;
+    bottom: 20px;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: 45px;
+    height: 45px;
+    padding: 0;
+
+    background-color: var(--accent-color);
     color: white;
+
     font-size: 24px;
     border: none;
     border-radius: 50%;
-    padding: 10px;
     cursor: pointer;
-    width: 45px;
-    height: 45px;
+}
+
+
+/* Adaptation aux petits écrans */
+
+@media (max-width: 800px) {
+    .film-grid,
+    #movies {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    footer {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 520px) {
+    .film-grid,
+    #movies {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h2 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    #search {
+        width: 100%;
+    }
 }
