@@ -58,4 +58,8 @@ loadButton.addEventListener("click", () => {
    }
 })
 
+// Crée un bouton pour remonter en haut de la page
+import { backToTop } from "./backToTop.js";
+
+backToTop();
 

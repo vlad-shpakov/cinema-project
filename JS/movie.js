@@ -49,3 +49,8 @@ getMovieById(filmId)
             console.log(error);
             movieCon.textContent = "Impossible de charger les films pour le moment. Vérifiez votre connexion et réessayez";
         });
+
+// Crée un bouton pour remonter en haut de la page
+import { backToTop } from "./backToTop.js";
+
+backToTop();

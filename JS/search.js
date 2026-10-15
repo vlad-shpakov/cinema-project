@@ -5,7 +5,6 @@ import { searchMovie } from "./api.js";
 const input = document.querySelector("#search");
 const display = document.querySelector("#movies");
 const button = document.querySelector("#loadMore");
-const buttonTop = document.querySelector("#backToTop");
 
 // Initialise le numéro de la page des résultats
 let page = 1;
@@ -134,9 +133,6 @@ button.addEventListener("click", () => {
 }); 
 
 // Crée un bouton pour remonter en haut de la page
-buttonTop.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-});
+import { backToTop } from "./backToTop.js";
+
+backToTop();

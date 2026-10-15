@@ -1,18 +1,12 @@
-/* =========================
-   1. STYLE GENERAL
-========================= */
+/* STYLE GENERAL */
 
 :root {
     background-color: #ffffff;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-        Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-        sans-serif;
-
+    font-family: system-ui, Arial, sans-serif;
     --main-color: #1a1a1a;
     --second-color: #821f27;
     --accent-color: #e5484d;
     --header-color: #171923;
-    --light-color: #f2f2f2;
 }
 
 body {
@@ -31,8 +25,8 @@ main {
 }
 
 body a {
-    text-decoration: none;
     color: var(--main-color);
+    text-decoration: none;
     cursor: pointer;
 }
 
@@ -45,18 +39,14 @@ img {
 }
 
 
-/* =========================
-   2. HEADER ET NAVIGATION
-   Commun aux trois pages
-========================= */
+/* HEADER ET NAVIGATION */
 
 header {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: 20px;
-
     background-color: var(--header-color);
     color: white;
     padding: 15px 20px;
@@ -73,21 +63,16 @@ header {
     color: white;
 }
 
-.logo p {
-    margin: 0;
-}
-
 .navigation {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    flex-wrap: wrap;
     gap: 20px;
     font-weight: bold;
 }
 
 .navigation a {
     color: white;
-    text-decoration: none;
 }
 
 .navigation a:hover {
@@ -96,64 +81,44 @@ header {
 }
 
 
-/* =========================
-   3. ACCUEIL : BANNIERE
-========================= */
+/* ACCUEIL : BANNIERE */
 
 .hero {
+    background: url("../images/hero.avif") no-repeat center;
+    background-size: cover;
+    min-height: 350px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 12px;
 
-    background:
-        linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-        url("../images/hero.avif") no-repeat center;
-
-    background-size: cover;
-
-    min-height: 350px;
-    padding: 20px;
     color: white;
 }
 
 .hero h2 {
     font-size: 45px;
-    font-weight: 700;
-    padding: 0;
     margin: 0;
 }
 
 .hero p {
     max-width: 550px;
-    font-weight: 600;
     font-size: 20px;
     line-height: 1.5;
+    font-weight: 600;
     margin: 0;
 }
 
 
-/* =========================
-   4. ACCUEIL : SECTIONS
-========================= */
+/* ACCUEIL : FILMS */
 
-#films,
-#cinema,
-#infos {
-    padding: 24px 0;
+#films {
+    padding: 20px 0;
 }
-
-#cinema p {
-    max-width: 1000px;
-    line-height: 1.6;
-}
-
-
-/* Films affichés sur l'accueil */
 
 .film-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
@@ -161,19 +126,13 @@ header {
     display: flex;
     flex-direction: column;
     gap: 12px;
-
-    min-width: 0;
     padding: 12px;
-
     background-color: var(--main-color);
-    color: var(--light-color);
+    color: #f2f2f2;
     border-radius: 8px;
-    overflow: hidden;
-    font-weight: bold;
 }
 
 .film-grid img {
-    display: block;
     width: 100%;
     aspect-ratio: 2 / 3;
     object-fit: cover;
@@ -181,16 +140,14 @@ header {
 }
 
 .film-grid p {
-    margin: 0;
     line-height: 1.5;
+    margin: 0;
     font-weight: normal;
 }
 
 .film-grid a {
     align-self: flex-start;
-    margin-top: auto;
     padding: 8px 12px;
-
     color: white;
     background-color: var(--second-color);
     border-radius: 4px;
@@ -202,16 +159,14 @@ header {
 }
 
 
-/* Bouton Charger plus sur l'accueil */
+/* BOUTON CHARGER PLUS DE L'ACCUEIL */
 
 #charger-plus {
     display: block;
     margin: 0 auto 24px;
     padding: 10px 20px;
-
-    background-color: var(--second-color);
     color: white;
-
+    background-color: var(--second-color);
     border: none;
     border-radius: 5px;
     font-size: 16px;
@@ -223,135 +178,98 @@ header {
 }
 
 
-/* =========================
-   5. ACCUEIL : TABLEAUX
-   Horaires et tarifs
-========================= */
+/* ACCUEIL : NOTRE CINEMA */
+
+#cinema,
+#infos {
+    padding: 24px 0;
+}
+
+#cinema p {
+    max-width: 1000px;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+
+/* ACCUEIL : INFOS PRATIQUES */
+
+.infos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.infos-grid > div {
+    padding: 15px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+}
+
+.infos-grid h3 {
+    margin-top: 0;
+}
 
 #infos table {
     border-collapse: collapse;
-    margin: 12px 0 28px;
+    margin: 12px 0 20px;
 }
 
 #infos th,
 #infos td {
-    padding: 10px 14px;
+    padding: 10px;
     border: 1px solid #dddddd;
     text-align: left;
 }
 
-#infos thead {
-    background-color: var(--light-color);
-}
 
-#infos th[scope="row"] {
-    background-color: #f7f7f7;
-}
-
-
-/* =========================
-   6. PAGE DETAIL DU FILM
-========================= */
+/* PAGE DETAIL DU FILM */
 
 #movie {
     max-width: 1100px;
     margin: 30px auto;
 }
 
+/* Le bloc qui contient toutes les informations du film */
+
 #movie > div {
-    display: grid;
-    grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
-    grid-template-areas:
-        "title title"
-        "poster rate"
-        "poster release"
-        "poster genre"
-        "poster actors"
-        "resume resume";
-
-    gap: 20px 32px;
-    align-items: start;
-
-    padding: 28px;
+    padding: 20px;
     background-color: #f2f2f2;
-    border-radius: 10px;
+    border-radius: 8px;
 }
-
-/* Titre du film */
 
 #movie h2 {
-    grid-area: title;
-    margin: 0;
     font-size: 2rem;
-    color: var(--main-color);
+    margin-top: 0;
 }
 
-/* Affiche */
-
 #movie img {
-    grid-area: poster;
     display: block;
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
     aspect-ratio: 2 / 3;
     object-fit: cover;
     border-radius: 8px;
-    margin: 0;
+    margin: 20px 0;
 }
-
-/* Informations */
 
 #movie p {
-    margin: 0;
     line-height: 1.6;
-}
-
-#movie p:nth-of-type(1) {
-    grid-area: rate;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--second-color);
-}
-
-#movie p:nth-of-type(2) {
-    grid-area: release;
-    color: #555555;
-}
-
-#movie p:nth-of-type(3) {
-    grid-area: genre;
-    font-weight: bold;
-}
-
-#movie p:nth-of-type(4) {
-    grid-area: actors;
-}
-
-/* Résumé */
-
-#movie p:nth-of-type(5) {
-    grid-area: resume;
-    padding-top: 20px;
-    border-top: 1px solid #cccccc;
-    line-height: 1.8;
+    margin: 12px 0;
 }
 
 
-/* =========================
-   7. FOOTER
-   Commun aux trois pages
-========================= */
+/* FOOTER */
 
 footer {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
+    flex-wrap: wrap;
     gap: 30px;
-
     background-color: var(--header-color);
-    color: var(--light-color);
-
+    color: white;
     padding: 25px 30px;
     margin-top: 20px;
 }
@@ -381,12 +299,7 @@ footer p {
 }
 
 
-/* =========================
-   8. PAGE RECHERCHE
-   Styles spécifiques conservés
-   en bas du fichier
-========================= */
-
+/* PAGE RECHERCHE */
 
 /* Barre de recherche */
 
@@ -397,11 +310,9 @@ footer p {
     max-width: 500px;
     margin: 20px auto;
     padding: 12px;
-
     font-size: 16px;
     border: 2px solid var(--header-color);
     border-radius: 8px;
-
     background-color: white;
     color: var(--header-color);
 }
@@ -411,35 +322,27 @@ footer p {
 }
 
 
-/* Grille des résultats */
+/* Grille des resultats */
 
 #movies {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
-
     max-width: 1100px;
     margin: 24px auto;
-
     text-align: center;
 }
 
-
-/* Cartes de films */
+/* Cartes des films */
 
 #movies article {
     display: flex;
     flex-direction: column;
-    min-width: 0;
-
     background-color: var(--main-color);
-    color: var(--light-color);
-
+    color: #f2f2f2;
     border: 1px solid #333333;
     border-radius: 8px;
     overflow: hidden;
-
-    text-align: center;
 }
 
 #movies img {
@@ -450,27 +353,24 @@ footer p {
 }
 
 #movies h2 {
-    color: var(--light-color);
+    color: #f2f2f2;
     font-size: 1.1rem;
     padding: 0 12px;
     margin: 16px 0;
 }
 
 #movies p {
-    color: var(--light-color);
+    color: #f2f2f2;
     padding: 0 12px;
 }
-
 
 /* Liens des cartes */
 
 #movies article a {
-    display: inline-block;
     align-self: center;
     margin: auto 12px 16px;
     padding: 8px 12px;
-
-    color: var(--light-color);
+    color: #f2f2f2;
     background-color: var(--second-color);
     border-radius: 4px;
 }
@@ -480,24 +380,21 @@ footer p {
     text-decoration: none;
 }
 
-
-/* Message de fin de résultats */
+/* Message de fin de recherche */
 
 #movies + p {
     text-align: center;
 }
 
 
-/* Bouton Charger plus */
+/* BOUTON CHARGER PLUS */
 
 #loadMore {
     display: block;
     margin: 24px auto;
     padding: 12px 20px;
-
     color: white;
     background-color: var(--accent-color);
-
     border: none;
     border-radius: 8px;
     font-size: 16px;
@@ -509,26 +406,20 @@ footer p {
 }
 
 
-/* Bouton retour en haut */
+/* BOUTON RETOUR EN HAUT */
 
 #backToTop {
     position: fixed;
     right: 20px;
     bottom: 20px;
-    z-index: 10;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    box-sizing: border-box;
     width: 45px;
     height: 45px;
     padding: 0;
-
     background-color: var(--accent-color);
     color: white;
-
     font-size: 24px;
     border: none;
     border-radius: 50%;
@@ -536,27 +427,24 @@ footer p {
 }
 
 
-/* Adaptation aux petits écrans */
+/* AFFICHAGE SUR LES ECRANS PLUS PETITS */
 
 @media (max-width: 800px) {
     .film-grid,
-    #movies {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    #movies,
+    .infos-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     footer {
         justify-content: flex-start;
     }
-
-     #movie  div {
-        display: flex;
-        flex-direction: column;
-    }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 600px) {
     .film-grid,
-    #movies {
+    #movies,
+    .infos-grid {
         grid-template-columns: 1fr;
     }
 
