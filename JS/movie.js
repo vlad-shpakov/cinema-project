@@ -19,6 +19,7 @@ getMovieById(filmId)
                 
                 const poster = document.createElement("img");
                 poster.src = movie.Poster;
+                poster.alt = `Affiche du film : ${movie.Title}`;
 
                 const title = document.createElement ("h2")
                 title.textContent = movie.Title

@@ -25,6 +25,7 @@ function showFilms(){
 
                 const poster = document.createElement("img");
                 poster.src = movie.Poster;
+                poster.alt = `Affiche du film : ${movie.Title}`;
                 
                 const link = document.createElement("a");
                 link.href = `movie.html?id=${filmId}`;
